@@ -1,0 +1,185 @@
+{% load static %}
+<section class="site-section" id="blog-section">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <h3 class="section-sub-title">Blog</h3>
+        <h2 class="section-title mb-3">Nossas Postagens do Blog</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      {% for b in blogpost %}
+      <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
+        <div class="h-entry">
+          <img src="{{ b.imagem_capa.thumb.url }}" alt="{{ b.titulo }}" class="img-fluid">
+          <h2 class="font-size-regular"><a href="#">{{ b.titulo }}</a></h2>
+
+          <div class="meta mb-4">
+            {{ b.autor }} <span class="mx-2">&bullet;</span> 
+            {{ b.data_publicacao }}
+          </div>
+
+          <p>{{ b.conteudo|truncatewords:20 }}</p>
+
+          <!-- Botão que abre o modal -->
+          <p>
+            <a href="#" data-toggle="modal" data-target="#modalBlog{{ b.id }}">
+              Continue Lendo...
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Modal da notícia -->
+      <div class="modal fade" id="modalBlog{{ b.id }}" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <h5 class="modal-title">{{ b.titulo }}</h5>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+              <img src="{{ b.imagem_capa.url }}" class="img-fluid mb-3" alt="{{ b.titulo }}">
+              <p><strong>Autor:</strong> {{ b.autor }}</p>
+              <p><strong>Publicado em:</strong> {{ b.data_publicacao }}</p>
+              <hr>
+              <p>{{ b.conteudo }}</p>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+<style>
+ /* ============================
+   ESTILO DOS CARDS DO BLOG
+   ============================ */
+
+.h-entry {
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all .3s ease;
+    height: 100%;
+}
+
+.h-entry:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.h-entry h2 a {
+    color: #222;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.h-entry h2 a:hover {
+    color: #0f9d58; /* verde do site */
+}
+
+.h-entry .meta {
+    font-size: 14px;
+    color: #777;
+}
+
+.h-entry p {
+    color: #444;
+}
+
+.h-entry a[data-toggle="modal"] {
+    font-weight: 600;
+    color: #0f9d58;
+}
+
+.h-entry a[data-toggle="modal"]:hover {
+    text-decoration: underline;
+}
+
+
+/* ============================
+   ESTILO DO MODAL
+   ============================ */
+
+/* Fundo do modal */
+.modal-content {
+    background: #ffffff !important; /* fundo branco */
+    border-radius: 12px !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2) !important;
+}
+
+/* Cabeçalho */
+.modal-header {
+    background: #0f9d58 !important; /* verde do site */
+    color: #fff !important;
+    border-bottom: none !important;
+    padding: 15px 20px !important;
+    border-top-left-radius: 12px !important;
+    border-top-right-radius: 12px !important;
+}
+
+.modal-title {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+}
+
+/* Corpo */
+.modal-body {
+    background: #ffffff !important;
+    padding: 20px !important;
+}
+
+.modal-body img {
+    border-radius: 10px !important;
+    margin-bottom: 15px !important;
+}
+
+.modal-body p {
+    font-size: 16px !important;
+    color: #333 !important;
+    line-height: 1.6 !important;
+}
+
+/* Rodapé */
+.modal-footer {
+    background: #f5f5f5 !important;
+    border-top: none !important;
+    padding: 15px !important;
+    border-bottom-left-radius: 12px !important;
+    border-bottom-right-radius: 12px !important;
+}
+
+/* Botão fechar */
+.modal-footer .btn-secondary {
+    background: #53db99 !important;
+    border: none !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    padding: 8px 18px !important;
+    border-radius: 6px !important;
+}
+
+.modal-footer .btn-secondary:hover {
+    background: #0c7c46 !important;
+}
+
+
+
+</style>

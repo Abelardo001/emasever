@@ -1,0 +1,63 @@
+{% load static %}
+<section class="site-section testimonial-wrap" id="testimonials-section">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <h3 class="section-sub-title">O Que as Pessoas Dizem</h3>
+        <h2 class="section-title mb-3">Depoimentos</h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carrossel de depoimentos -->
+  <div class="slide-one-item home-slider owl-carousel">
+    {% for d in Testemunho %}
+      <div class="p-3">
+        <div class="depoimento-card" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+          <figure class="mb-3">
+            <img src="{{ d.foto.thumb.url }}" alt="{{ d.nome }}"
+                 class="rounded-circle mb-2"
+                 style="width: 90px; height: 90px; object-fit: cover;">
+          </figure>
+
+          <blockquote class="mb-4">
+            <p class="lead">“{{ d.depoimento }}”</p>
+          </blockquote>
+
+          <p class="font-weight-bold mb-0">{{ d.nome }}</p>
+          <span class="text-muted small">{{ d.cargo }}</span>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+
+
+
+<style>
+      .depoimento-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 20px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.35s ease;
+        text-align: center;
+        border: none !important;
+        max-width: 400px;
+        margin: 0 auto;
+       
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+      }
+
+      .depoimento-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+    </style>

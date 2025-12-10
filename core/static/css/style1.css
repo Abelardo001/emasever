@@ -1,0 +1,85 @@
+/* Coloque isso no final do seu base.html ou no seu arquivo CSS */
+
+  /* Classe principal do card (aplica em todos os membros) */
+  .person-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;                    /* ← borda bem arredondada e bonita */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06); /* sombra leve no estado normal */
+    transition: all 0.35s ease;
+    text-align: center;
+    border: none !important;                /* remove qualquer borda indesejada */
+  }
+
+  /* Hover: elevação + sombra mais forte (sem borda colorida) */
+  .person-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+  }
+
+.team-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;                     /* ← cantos bem arredondados e bonitos */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.35s ease;
+    text-align: center;
+    border: none !important;
+  }
+
+  .team-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  }
+
+  .depoimento-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;                     /* ← cantos bem arredondados e bonitos */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.35s ease;
+    text-align: center;
+    border: none !important;
+  }
+  .depoimento-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 16px 15px rgba(141, 141, 141, 0.15);
+  }
+  /* Customização Opcional para Deixar o Modal Mais Bonito */
+
+/* 1. Sombra Aumentada no Conteúdo */
+.modal-content {
+    box-shadow: 0 10px 20px rgba(255, 20, 20, 0.15); /* Sombra mais suave */
+    border-radius: 5px; /* Bordas um pouco mais arredondadas */
+    border: none; /* Remove a borda padrão do Bootstrap */
+    background-color: black;
+}
+
+/* 2. Suavizar o Fundo (Overlay) */
+.modal-backdrop.show {
+    opacity: 0.5; /* Deixa o fundo mais transparente para destacar o conteúdo */
+}
+ 
+ .depoimento-card {
+        background: white !important; 
+        padding: 2rem;
+        border: 1px solid red !important;                     /* ← cantos bem arredondados e bonitos */
+        box-shadow: 0 6px 20px rgba(136, 121, 121, 0.08);
+        transition: all 0.35s ease;
+        text-align: center;
+        border: none !important;
+        width: 400px !important;
+        margin: 0 auto;
+       
+        text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+
+      }
+
+      .depoimento-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15) !important;
+      }
