@@ -1,6 +1,5 @@
 {% load static %}
 
-
 <section class="site-section border-bottom bg-light" id="services-section">
   <div class="container">
     <div class="row mb-5">
@@ -11,134 +10,40 @@
     </div>
     <div class="row align-items-stretch">
 
-      <!-- Serviço 1 -->
-      <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
-        <div class="unit-4 d-flex">
-          <div class="unit-4-icon mr-4"><span class="text-primary icon-autorenew"></span></div>
-          <div>
-            <h3>Consultoria Empresarial</h3>
-            <p>Lorem ipsum dolor sit amet consectetur...</p>
-            <p>
-              <a href="#" 
-                 data-bs-toggle="modal" 
-                 data-bs-target="#modalServico"
-                 data-titulo="Consultoria Empresarial"
-                 data-descricao="Ajudamos sua empresa a definir metas claras, otimizar processos internos, reduzir custos e aumentar a lucratividade com estratégias comprovadas e personalizadas.">
-                Saiba Mais
-              </a>
-            </p>
-          </div>
-        </div>
+  {% for s in servico %}
+
+  <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+    <div class="unit-4 d-flex">
+
+      <!-- Ícone dinâmico -->
+      <div class="unit-4-icon mr-4">
+        <i class="bi {{ s.icone }} text-primary"></i>
       </div>
 
-      <!-- Serviço 2 -->
-      <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="unit-4 d-flex">
-          <div class="unit-4-icon mr-4"><span class="text-primary icon-backspace"></span></div>
+      <div>
+        <h3>{{ s.titulo }}</h3>
+        <p>{{ s.descricao_curta }}</p>
 
-          
-          <div>
-            <h3>Análise de Mercado</h3>
-            <p>Lorem ipsum dolor sit amet consectetur...</p>
-            <p>
-              <a href="#" 
-                 data-bs-toggle="modal" 
-                 data-bs-target="#modalServico"
-                 data-titulo="Análise de Mercado"
-                 data-descricao="Estudos completos com dados atualizados sobre concorrentes, tendências do setor, comportamento do consumidor e oportunidades de crescimento no seu nicho.">
-                Saiba Mais
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Serviço 3 -->
-      <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="unit-4 d-flex">
-          <div class="unit-4-icon mr-4"><span class="text-primary icon-av_timer"></span></div>
-          <div>
-            <h3>Monitoramento de Usuários</h3>
-            <p>Lorem ipsum dolor sit amet consectetur...</p>
-            <p>
-              <a href="#" 
-                 data-bs-toggle="modal" 
-                 data-bs-target="#modalServico"
-                 data-titulo="Monitoramento de Usuários"
-                 data-descricao="Acompanhe em tempo real o comportamento dos seus clientes na plataforma: páginas visitadas, tempo de sessão, taxa de conversão e muito mais.">
-                Saiba Mais
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Serviço 4 -->
-      <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="300">
-        <div class="unit-4 d-flex">
-          <div class="unit-4-icon mr-4"><span class="text-primary icon-beenhere"></span></div>
-          <div>
-            <h3>Consultoria em Seguros</h3>
-            <p>Lorem ipsum dolor sit amet consectetur...</p>
-            <p>
-              <a href="#" 
-                 data-bs-toggle="modal" 
-                 data-bs-target="#modalServico"
-                 data-titulo="Consultoria em Seguros"
-                 data-descricao="Proteja seu patrimônio e sua empresa com os melhores planos de seguro do mercado, escolhidos especialmente para o seu perfil de risco.">
-                Saiba Mais
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Serviço 5 -->
-      <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="400">
-        <div class="unit-4 d-flex">
-          <div class="unit-4-icon mr-4"><span class="text-primary icon-business_center"></span></div>
-          <div>
-            <h3>Investimento Financeiro</h3>
-            <p>Lorem ipsum dolor sit amet consectetur...</p>
-            <p>
-              <a href="#" 
-                 data-bs-toggle="modal" 
-                 data-bs-target="#modalServico"
-                 data-titulo="Investimento Financeiro"
-                 data-descricao="Carteiras de investimento personalizadas com foco em rentabilidade e segurança, acompanhadas por especialistas do mercado financeiro.">
-                Saiba Mais
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Serviço 6 -->
-      <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="500">
-        <div class="unit-4 d-flex">
-          <div class="unit-4-icon mr-4"><span class="text-primary icon-cloud_done"></span></div>
-          <div>
-            <h3>Gestão Financeira</h3>
-            <p>Lorem ipsum dolor sit amet consectetur...</p>
-            <p>
-              <a href="#" 
-                 data-bs-toggle="modal" 
-                 data-bs-target="#modalServico"
-                 data-titulo="Gestão Financeira"
-                 data-descricao="Controle total do fluxo de caixa, contas a pagar/receber, relatórios gerenciais e planejamento financeiro para sua empresa crescer com saúde.">
-                Saiba Mais
-              </a>
-            </p>
-          </div>
-        </div>
+        <p>
+          <a href="#"
+             data-bs-toggle="modal"
+             data-bs-target="#modalServico"
+             data-titulo="{{ s.titulo }}"
+             data-descricao="{{ s.descricao_longa }}">
+            Saiba Mais
+          </a>
+        </p>
       </div>
 
     </div>
   </div>
-</section>
+
+  {% endfor %}
+
+</div>
+
 
 <!-- ==================== POP-UP (MODAL) ==================== -->
-<!-- Pode colocar no final do template ou no base.html -->
 <div class="modal fade" id="modalServico" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
@@ -153,7 +58,7 @@
     </div>
   </div>
 </div>
-<!-- Scriptzinho de 8 linhas que troca o conteúdo do modal -->
+
 <script>
   document.getElementById('modalServico').addEventListener('show.bs.modal', function (e) {
     const link = e.relatedTarget;

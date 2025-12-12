@@ -14,32 +14,35 @@ class Base(models.Model):
 # models.py
 class Servico(Base):
     ICONES_CHOICES = (
-        ('icon-autorenew', 'Auto Renew'),
-        ('icon-backspace', 'Backspace'),
-        ('icon-av_timer', 'Timer'),
-        ('icon-beenhere', 'Been Here'),
-        ('icon-business_center', 'Business Center'),
-        ('icon-cloud_done', 'Cloud Done'),
-        ('icon-trending_up', 'Trending Up'),
-        ('icon-people', 'People'),
-        ('icon-security', 'Security'),
-        ('icon-account_balance', 'Account Balance'),
-        ('icon-pie_chart', 'Pie Chart'),
-        ('icon-assessment', 'Assessment'),
-        ('icon-shield', 'Shield'),
-        # Adicione quantos quiser – tem milhares no Material Icons
-    )
+    ('bi-briefcase', 'Consultoria / Negócios'),
+    ('bi-graph-up', 'Crescimento / Métricas'),
+    ('bi-bar-chart-line', 'Análise de Mercado'),
+    ('bi-people', 'Público-Alvo'),
+    ('bi-bullseye', 'Objetivos / Target'),
+    ('bi-megaphone', 'Campanhas / Divulgação'),
+    ('bi-lightbulb', 'Ideias / Estratégia'),
+    ('bi-rocket', 'Lançamentos'),
+    ('bi-cash-stack', 'Finanças / Investimentos'),
+    ('bi-wallet2', 'Gestão Financeira'),
+    ('bi-shield-check', 'Segurança / Proteção'),
+    ('bi-handshake', 'Parcerias'),
+    ('bi-pie-chart', 'Gráficos / Relatórios'),
+    ('bi-bar-chart', 'Performance'),
+)
+
+
 
     titulo = models.CharField('Título', max_length=100)
     descricao_curta = models.TextField('Descrição Curta', max_length=200)
     descricao_longa = models.TextField('Descrição Longa')
     icone = models.CharField(
-        'Ícone (Material Icons)',
-        max_length=50,
-        choices=ICONES_CHOICES,
-        default='icon-business',
-        help_text='Escolha o ícone que aparece no site. Veja todos em: <a href="https://fonts.google.com/icons" target="_blank">fonts.google.com/icons</a>'
-    )
+    'Ícone (Bootstrap Icons)',
+    max_length=50,
+    choices=ICONES_CHOICES,
+    default='bi-briefcase',
+    help_text='Escolha o ícone que aparece no site. Veja todos em: <a href="https://icons.getbootstrap.com/" target="_blank">icons.getbootstrap.com</a>'
+)
+
 
     class Meta:
         verbose_name = 'Serviço'
